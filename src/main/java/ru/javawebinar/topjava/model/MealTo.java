@@ -31,7 +31,15 @@ public class UserMealWithExceed {
     }
 
     public boolean isExceed() {
-        return exceed;
+        return excess;
     }
-
+    @Override
+    public String toString() {
+        return "MealTo{" +
+                "dateTime=" + dateTime +
+                ", description='" + description + '\'' +
+                ", calories=" + calories +
+                ", excess=" + excess +
+                '}';
+    }
 }
