@@ -8,11 +8,11 @@
     <title>Meal list</title>
     <style>
         .normal {
-            color: green;
+            color: chartreuse;
         }
 
         .excess {
-            color: red;
+            color: orangered;
         }
     </style>
 </head>
@@ -35,7 +35,7 @@
         </thead>
         <c:forEach items="${meals}" var="meal">
             <jsp:useBean id="meal" type="ru.javawebinar.topjava.model.MealTo"/>
-            <tr class="${meal.excess ? 'excess' : 'normal'}">
+            <tr class="${meal.exceed ? 'excess' : 'normal'}">
                 <td>
                         <%--${meal.dateTime.toLocalDate()} ${meal.dateTime.toLocalTime()}--%>
                         <%--<%=TimeUtil.toString(meal.getDateTime())%>--%>
