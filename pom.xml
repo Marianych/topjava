@@ -102,6 +102,13 @@
     </build>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.ehcache/ehcache -->
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>3.8.0</version>
+        </dependency>
+
         <!-- Logging with SLF4J & LogBack -->
         <dependency>
             <groupId>org.slf4j</groupId>
