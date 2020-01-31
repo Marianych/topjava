@@ -11,7 +11,7 @@
         <constructor-arg name="repository" ref="inMemoryUserRepository"/>
     </bean>
 -->
-
+    <import resource="spring-security.xml"/>
     <!-- Not necessary, already included with component-scan -->
     <!--<context:annotation-config/>-->
 
