@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.repository.UserRepository;
+import ru.javawebinar.topjava.to.UserTo;
+import ru.javawebinar.topjava.util.UserUtil;
 import ru.javawebinar.topjava.util.exception.NotFoundException;
 
 import java.util.List;
@@ -48,7 +50,15 @@ public class UserService {
 
     public void update(User user) throws NotFoundException {
         Assert.notNull(user, "user must not be null");
-        checkNotFoundWithId(repository.save(user), user.getId());
+//      checkNotFoundWithId : check works only for JDBC, disabled
+        repository.save(user);
+    }
+
+    @CacheEvict(value = "users", allEntries = true)
+    @Transactional
+    public void update(UserTo userTo) {
+        User user = get(userTo.id());
+        repository.save(UserUtil.updateFromTo(user, userTo));
     }
 
     @CacheEvict(value = "users", allEntries = true)
